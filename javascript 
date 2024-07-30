@@ -1,1 +1,25 @@
-hi
+# include <stdio.h>
+# include <math.h>
+
+int main() {
+  int age ;
+  printf("Enter age : ") ;
+  scanf("%d" , &age) ;
+  
+  if(age >= 60) {
+    printf("Senior citizen");
+
+  } else if(age > 40 && age < 60) {
+    printf("Adult");
+
+  }  else if(age > 18 && age < 40) {
+    printf("Youth");
+
+  } else if(age > 13 && age < 18 ) {
+    printf("Teenager");
+
+  } else {
+  printf("Child");
+  }
+   return 0;
+}
