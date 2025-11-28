@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Questionnaire - Dark Romantic Mode</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Parisienne&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- CDN Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Main Container -->
+    <div id="app">
+        <!-- Floating Hearts Background -->
+        <div class="hearts-background" id="hearts-bg"></div>
+        
+        <!-- Form Container -->
+        <div id="form-container" class="form-container">
+            <!-- Progress Bar -->
+            <div class="progress-wrapper">
+                <div class="progress-info">
+                    <span class="step-counter" id="step-counter">Step 1 of 13</span>
+                    <span class="progress-percentage" id="progress-percentage">8%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="question-card" id="question-card">
+                <div class="emoji-display" id="emoji-display">👤</div>
+                <h2 class="question-title" id="question-title">What is your name?</h2>
+                
+                <!-- Input Container -->
+                <div class="input-container" id="input-container">
+                    <input 
+                        type="text" 
+                        id="answer-input" 
+                        class="text-input" 
+                        placeholder="Type your answer..."
+                        autocomplete="off"
+                    >
+                </div>
+
+                <!-- Error Message -->
+                <p class="error-message" id="error-message"></p>
+
+                <!-- Navigation Buttons -->
+                <div class="nav-buttons">
+                    <button id="prev-btn" class="btn btn-secondary" style="display: none;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                        Previous
+                    </button>
+                    <button id="next-btn" class="btn btn-primary">
+                        Next
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+
+                <p class="keyboard-hint">Press Enter to continue</p>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="review-container" class="review-container" style="display: none;">
+            <div class="review-controls">
+                <button id="toggle-mode-btn" class="btn btn-secondary-small">High Contrast</button>
+            </div>
+
+            <div id="review-content" class="review-content">
+                <div class="review-header">
+                    <svg class="heart-icon" width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                    <h1 class="review-title">Love Questionnaire ❤️</h1>
+                    <p class="review-date" id="review-date"></p>
+                </div>
+
+                <div id="review-answers" class="review-answers"></div>
+
+                <div class="review-footer">
+                    <p>Created with ❤️</p>
+                </div>
+            </div>
+
+            <div class="review-actions">
+                <button id="download-pdf-btn" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download PDF
+                </button>
+                <button id="print-pdf-btn" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <rect x="6" y="14" width="12" height="8"></rect>
+                    </svg>
+                    Print-Friendly PDF
+                </button>
+                <button id="start-over-btn" class="btn btn-tertiary">Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
